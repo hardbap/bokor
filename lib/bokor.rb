@@ -24,10 +24,6 @@ class Bokor
     @sock.close
   end
 
-  def execute(command)
-
-  end
-
   def echo(text = "hello")
     write(build_command("ECHO", text))
   end
