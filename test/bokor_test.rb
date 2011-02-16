@@ -17,7 +17,7 @@ class BokorTest < Test::Unit::TestCase
   end
 
   def teardown
-
+    @bokor.disconnect
   end
 
   def test_echo
