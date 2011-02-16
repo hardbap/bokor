@@ -28,8 +28,16 @@ class Bokor
     write(build_command("ECHO", text))
   end
 
-  def browser
-    write(build_command("BROWSER"))
+  def visit(url)
+    write(build_command("VISIT", url))
+  end
+
+  def wait
+    write(build_command("WAIT"))
+  end
+
+  def reset
+    write(build_command("RESET"))
   end
 
   def write(command)
