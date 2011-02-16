@@ -5,7 +5,8 @@ require 'bokor'
 
 class BokorTest < Test::Unit::TestCase
   def setup
-    Bokor.new.connect
+    @bokor = Bokor.new
+    @bokor.connect
   rescue Errno::ECONNREFUSED
     puts <<-EOS
 
@@ -20,6 +21,6 @@ class BokorTest < Test::Unit::TestCase
   end
 
   def test_echo
-    flunk
+    assert_match /\Ahello\z/, @bokor.echo
   end
 end

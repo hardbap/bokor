@@ -34,10 +34,11 @@ class Bokor
 
   def write(command)
     command.each { |c| @sock.write(c) }
+    read
   end
 
   def read
-    @sock.gets
+    format_reply(@sock.read(1), @sock.gets)
   end
 
   def build_command(name, *args)
@@ -50,5 +51,11 @@ class Bokor
     end
 
     command
+  end
+
+  def format_reply(reply_type, line)
+    case reply_type
+    when PLUS then line.strip
+    end
   end
 end
